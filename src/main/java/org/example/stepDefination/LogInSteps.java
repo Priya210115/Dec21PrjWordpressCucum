@@ -23,11 +23,11 @@ public class LogInSteps {
         driver.manage().window().maximize();
     }
 
-    @When("User enters user name and password")
-    public void user_enters_user_name_and_password() {
+    @When("User enters (.*) and (.*)$")
+    public void user_enters_user_name_and_password(String uname,String pswd) {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-        driver.findElement(By.xpath("//input[@name='username']")).sendKeys("Admin");
-        driver.findElement(By.xpath("//input[@name='password']")).sendKeys("admin123");
+        driver.findElement(By.xpath("//input[@name='username']")).sendKeys(uname);
+        driver.findElement(By.xpath("//input[@name='password']")).sendKeys(pswd);
 
     }
 
